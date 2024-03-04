@@ -43,7 +43,7 @@ Thanks goes to these wonderful people ([:hugs:](https://allcontributors.org/docs
         <tr>
         <td align="center">
             <a href="https://github.com/n00bmaster68">
-                <sub><b>Thang Le Huy Nguyen</b></sub>
+                <sub><b>1. Thang Le Huy Nguyen</b></sub>
             </a>
       </tr>
     </tbody>
