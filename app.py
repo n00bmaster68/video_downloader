@@ -48,6 +48,7 @@ def download_video():
     reset()
     entry_url.configure(state=ctk.DISABLED)
     download_button.configure(state=ctk.DISABLED)
+    show_info_button.configure(state=ctk.DISABLED)
 
     download_dir = filedialog.askdirectory(title="Select Download Location")
 
@@ -59,8 +60,15 @@ def download_video():
 
     try:
         yt = YouTube(url, on_progress_callback=on_progress)
-        stream = yt.streams.filter(res=resolution).first()
-        stream.download(output_path=download_dir)
+        if file_type_cmb.get() == 'audio':
+            stream = yt.streams.filter(only_audio=True).first() 
+            file_name = stream.download(output_path=download_dir)
+            base, ext = os.path.splitext(file_name)
+            new_file = base + '.mp3'
+            os.rename(file_name, new_file) 
+        else:
+            stream = yt.streams.filter(res=resolution).first()
+            stream.download(output_path=download_dir)
         status_label.configure(text="Downloaded successfully!")
         print("success")
     except Exception as e:
@@ -70,6 +78,7 @@ def download_video():
         # Re-enable entry and button after download finishes
         entry_url.configure(state=ctk.NORMAL)
         download_button.configure(state=ctk.NORMAL)
+        show_info_button.configure(state=ctk.NORMAL)
 
 root = ctk.CTk()
 ctk.set_appearance_mode("System")
@@ -89,15 +98,30 @@ entry_url = ctk.CTkEntry(content_frame, width=400, height=40)
 url_label.pack(pady=(10, 5))
 entry_url.pack(pady=(10, 5))
 
-resolutions = ["1080p", "720p", "480p", "360p"]
-resolution_cmb = ctk.CTkComboBox(content_frame, values=resolutions)
-resolution_cmb.set(resolutions[-1])
-resolution_cmb.pack(pady=(10, 5))
+option_frame = ctk.CTkFrame(content_frame, width=300, height=50, corner_radius=10)
 
-show_info_button = ctk.CTkButton(content_frame, text="Show Info", command=show_info)
-show_info_button.pack(pady=(10, 5))
-download_button = ctk.CTkButton(content_frame, text="Download", command=download_video)
-download_button.pack(pady=(10, 5))
+resolutions = ["1080p", "720p", "480p", "360p"]
+resolution_cmb = ctk.CTkComboBox(option_frame, values=resolutions, state='readonly')
+resolution_cmb.set(resolutions[-1])
+
+file_types = ["audio", "video"]
+file_type_cmb = ctk.CTkComboBox(option_frame, values=file_types, state='readonly')
+file_type_cmb.set(file_types[-1])
+
+resolution_cmb.pack(side=ctk.RIGHT, pady=(10, 5), padx=10)
+file_type_cmb.pack(side=ctk.LEFT, pady=(10, 5), padx=10)
+
+option_frame.pack(pady=(10, 5))
+
+button_frame = ctk.CTkFrame(content_frame, width=300, height=50, corner_radius=10)
+
+show_info_button = ctk.CTkButton(button_frame, text="Show Info", command=show_info)
+show_info_button.pack(side=ctk.RIGHT, pady=(10, 5), padx=10)
+
+download_button = ctk.CTkButton(button_frame, text="Download", command=download_video)
+download_button.pack(side=ctk.LEFT, pady=(10, 5), padx=10)
+
+button_frame.pack(pady=(10, 5))
 
 progress_label = ctk.CTkLabel(content_frame, text="0%")
 
@@ -105,7 +129,7 @@ progress_bar = ctk.CTkProgressBar(content_frame, width=400)
 
 status_label = ctk.CTkLabel(content_frame, text="")
 
-info_frame = ctk.CTkFrame(content_frame, width=400, height=200, corner_radius=10, border_width=1)
+info_frame = ctk.CTkFrame(content_frame, width=400, height=250, corner_radius=10, border_width=1)
 author_label = ctk.CTkLabel(info_frame)
 length_label = ctk.CTkLabel(info_frame)
 title_label = ctk.CTkLabel(info_frame)
