@@ -44,3 +44,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🖥️ Author
 Thang Le-Huy Nguyen
 
+## Report for this project
+<a href="https://www.overleaf.com/8268586649mbxymvmbdhfv#fb3d48">LaTex report</a>
