@@ -9,7 +9,7 @@ This script allows you to download YouTube videos using the Pytube library. It r
 
 ## ✨ Usage
 - Run `python app.py` in your termimal or command prompt
-![Alt text](images_for_readme\Screenshot 2024-04-28 112933.png?raw=true "Title")
+![[Image description text]](images_for_readme/Screenshot%202024-04-28%20112933.png)
 
 
 ### 🔹 Download a video
