@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from tkinter import ttk, filedialog
+from tkinter import filedialog
 from pytube import YouTube
 import os
 
