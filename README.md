@@ -1,7 +1,7 @@
 # 🎬 YouTube Video Downloader
 
 ## 🌐 Overview
-This script allows you to download YouTube videos using the Pytube library. It reads a list of YouTube video URLs from a file (`urls.txt`) and attempts to download each video in the highest resolution possible (1080p, 720p, 480p, or 360p with audio or only audio ).
+This script allows you to download YouTube videos using the Pytube library. It reads video URLs and attempts to download each video in the highest resolution possible (1080p, 720p, 480p, or 360p with audio or only audio).
 
 ## ✅ Prerequisites
 - Make sure your device has python 3.11
@@ -9,27 +9,31 @@ This script allows you to download YouTube videos using the Pytube library. It r
 
 ## ✨ Usage
 - Run `python app.py` in your termimal or command prompt
-![[Image description text]](images_for_readme/Screenshot%202024-04-28%20112933.png)
-
+![[Starting UI]](images_for_readme/Screenshot%202024-04-28%20112933.png)
 
 ### 🔹 Download a video
 1. Get your video url first, example: https://www.youtube.com/watch?v=C6SsborFYJw
+2. Then put it in input url entry
+3. Select your desired resolution and remember choose type as video
+4. Click download, choose folder to save, and wait
+![[Demo UI: downloading video]](images_for_readme/Screenshot%202024-04-28%20114203.png)
 
-2. 
+### 🔹 Download only audio of video
+1. Get your video url first, example: https://www.youtube.com/watch?v=C6SsborFYJw
+2. Then put it in input url entry
+3. Select your desired resolution and remember choose type as audio
+4. Click download, choose folder to save, and wait
+![[Demo UI: downloading video audio]](images_for_readme/Screenshot%202024-04-28%20114426.png)
 
-### 🔹 Download a playlist
-1. Run the script using the command `python playlist.py` in your terminal or command prompt.
-2. Enter the playlist URL when prompted.
+### 🔹 Show information of video
+1. Get your video url first, example: https://www.youtube.com/watch?v=C6SsborFYJw
+2. Then put it in input url entry
+3. Click "show info"
+![[Demo UI: show information of video]](images_for_readme/Screenshot%202024-04-28%20114652.png)
 
 ## 📤 Output
-- Downloaded videos will be stored in the 'Youtube_Videos' folder in the script's directory.
-- The script will remove successfully downloaded video URLs from the `urls.txt` file.
-- If an error occurs during the download, the script will print an error message and continue to the next video.
-
-## 🖊️ Note
-- If the 'Youtube_Videos' folder does not exist, the script will create it.
-- The script prioritizes downloading videos in the following resolutions: 720p, 480p, and 360p with audio.
-- If a video cannot be downloaded due to an error, the error message will be displayed, and the script will proceed to the next video.
+- Downloaded videos/audios will be stored in the chosen folders.
+- If an error occurs during the download, the script will print an error message.
 
 ## ⚠️ Disclaimer
 This script is for educational and personal use only. Respect the intellectual property rights of the content creators and adhere to YouTube's terms of service.
