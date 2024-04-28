@@ -26,7 +26,7 @@ class YoutubeDownloader:
         self.resolution_cmb = ctk.CTkComboBox(self.option_frame, values=self.resolutions, state='readonly')
         self.resolution_cmb.set(self.resolutions[-1])
         self.file_types = ["audio", "video"]
-        self.file_type_cmb = ctk.CTkComboBox(self.option_frame, values=self.file_types, state='readonly')
+        self.file_type_cmb = ctk.CTkComboBox(self.option_frame, values=self.file_types, state='readonly', command=self.update_res_cmb)
         self.file_type_cmb.set(self.file_types[-1])
         self.resolution_cmb.pack(side=ctk.RIGHT, pady=(10, 5), padx=10)
         self.file_type_cmb.pack(side=ctk.LEFT, pady=(10, 5), padx=10)
@@ -52,6 +52,12 @@ class YoutubeDownloader:
         
     def run(self):
         self.root.mainloop()
+        
+    def update_res_cmb(self, selected):
+        if selected == 'audio':
+            self.resolution_cmb.configure(state=ctk.DISABLED)
+        else:
+            self.resolution_cmb.configure(state=ctk.NORMAL)
 
     def show_info(self):
         try:
