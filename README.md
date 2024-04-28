@@ -1,17 +1,20 @@
 # 🎬 YouTube Video Downloader
 
 ## 🌐 Overview
-This script allows you to download YouTube videos using the Pytube library. It reads a list of YouTube video URLs from a file (`urls.txt`) and attempts to download each video in the highest resolution possible (720p, 480p, or 360p with audio)also able to download whole youtube playlist.
+This script allows you to download YouTube videos using the Pytube library. It reads a list of YouTube video URLs from a file (`urls.txt`) and attempts to download each video in the highest resolution possible (1080p, 720p, 480p, or 360p with audio or only audio ).
 
 ## ✅ Prerequisites
-- Run `pip install requirements.txt`
+- Make sure your device has python 3.11
+- Run `pip install -r requirements.txt`
 
 ## ✨ Usage
+- Run `python app.py` in your termimal or command prompt
+![plot](..\images_for_readme\Screenshot 2024-04-28 112933.png)
 
-### 🔹 Download list of videos
-1. Create a text file named `urls.txt` in the same directory as the script.
-2. Add one YouTube video URL per line in the `urls.txt` file.
-3. Run the script using the command `python downloader.py` in your terminal or command prompt.
+### 🔹 Download a video
+1. Get your video url first, example: https://www.youtube.com/watch?v=C6SsborFYJw
+
+2. 
 
 ### 🔹 Download a playlist
 1. Run the script using the command `python playlist.py` in your terminal or command prompt.
@@ -34,18 +37,5 @@ This script is for educational and personal use only. Respect the intellectual p
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🖥️ Author
-Rajkishor Patra
-
-## Contributors 🍉
-Thanks goes to these wonderful people ([:hugs:](https://allcontributors.org/docs/en/emoji-key)):
-<table>
-    <tbody>
-        <tr>
-        <td align="center">
-            <a href="https://github.com/n00bmaster68">
-                <sub><b>1. Thang Le Huy Nguyen</b></sub>
-            </a>
-      </tr>
-    </tbody>
-</table>
+Thang Le-Huy Nguyen
 
