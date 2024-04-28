@@ -122,7 +122,6 @@ class YoutubeDownloader:
             print(e)
             self.status_label.configure(text=f"Error: {str(e)}")
         finally:
-            # Re-enable entry and button after download finishes
             self.entry_url.configure(state=ctk.NORMAL)
             self.download_button.configure(state=ctk.NORMAL)
             self.show_info_button.configure(state=ctk.NORMAL)
