@@ -114,7 +114,7 @@ class YoutubeDownloader:
                 new_file = base + '.mp3'
                 os.rename(file_name, new_file)
             else:
-                stream = yt.streams.filter(res=resolution).first()
+                stream = yt.streams.filter(res=resolution, only_audio=False).first()
                 stream.download(output_path=download_dir)
             self.status_label.configure(text="Downloaded successfully!")
             print("success")
